@@ -1,7 +1,6 @@
 import unittest
 import tempfile
 from pathlib import Path
-import os
 
 from expense_cli import db
 
@@ -38,8 +37,8 @@ class DBTests(unittest.TestCase):
         self.assertIsNone(db.get_expense(eid))
 
     def test_search(self):
-        db.add_expense("movie", 15.0, tags=["entertain"]) 
-        db.add_expense("bus", 2.5, tags=["transport"]) 
+        db.add_expense("movie", 15.0, tags=["entertain"])
+        db.add_expense("bus", 2.5, tags=["transport"])
         r = db.list_expenses(tag="entertain")
         self.assertEqual(len(r), 1)
         r2 = db.list_expenses(q="bus")

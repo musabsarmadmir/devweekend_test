@@ -1,7 +1,7 @@
 import sqlite3
 import os
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Optional, Dict, Any
 
 # Database path: can be overridden by EXPENSES_DB env var or via set_db_path()
@@ -52,7 +52,7 @@ def init_db() -> None:
 
 
 def _now_iso() -> str:
-    return datetime.utcnow().isoformat() + "Z"
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
 def add_expense(title: str, amount: float, tags: Optional[List[str]] = None, note: Optional[str] = None) -> int:
