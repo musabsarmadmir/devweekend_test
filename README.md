@@ -34,3 +34,5 @@ python -m unittest discover -v
 Requirements: Python 3.8+ (uses only stdlib) — no extra packages required.
 
 The SQLite database is stored by default in `data/expenses.db` inside the project directory.
+
+Scaffolded and tested by an automated assistant during the assessment.
